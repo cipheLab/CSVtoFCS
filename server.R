@@ -97,7 +97,7 @@ shinyServer(function(input, output, session) {
       data.ff <- new("flowFrame",exprs=data,parameters=AnnotatedDataFrame(metadata))
 
       lapply(c(1:dim(data)[2]),function(x){data.ff@description[[paste0("$P",x,"R")]] <<- metadata$maxRange[[x]]})
-      data.ff <- cytofCore.updateFlowFrameKeywords(data.ff)
+      # data.ff <- cytofCore.updateFlowFrameKeywords(data.ff)
       name <- paste0(dir,"/",input$csvTofcs[i,"name"],".fcs")
       write.FCS(data.ff, name,)
     })
